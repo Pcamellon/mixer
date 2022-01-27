@@ -1,2 +1,8 @@
 # mixer
  Se realiza la mezcla de 2 productos con agua en un depósito
+
+* SoMachine Basic 4.3
+* PLC Schneider Electric TM221CE40R (tornillo)
+
+Se desea realizar la mezcla de 2 productos con agua en un depósito. Este cuenta con un sensor de nivel alto (I0.1) con un indicador (Q0.1). El proceso inicia con el llenado del depósito. Para ello se  maneja el flujo de agua de entrada (Q0.8) hasta que este se alcance el nivel alto. La dosificación de los dos productos se realiza a través de una balanza. Primero se abre la válvula que maneja el producto A (Q0.4). Cuando se alcanza la masa adecuada el sensor másico da un 1 lógico (I0.2) y se cierra esta válvula. A continuación se añade el producto B, que es manejado por otra válvula (Q0.5). Cuando se alcanza la masa total el sensor másico da otro 1 lógico (I0.3). Entonces se acciona el motor 1 (Q0.6) que abre la compuerta de la báscula durante 5 segundos para dejar caer el contenido. Luego se apaga y retorna sola a su posición inicial. El proceso de mezclado se inicia manualmente (I0.4). De ello se encarga el motor 2 (Q0.7) y mientras se realiza se mantiene un indicador encendido (Q0.2). A los 10 s de mezclado se para este motor y se abre la válvula para vaciar el tanque (Q0.9). Cuando el tanque está vacío (I0.8) se cierra esta válvula y se abre la de entrada de agua. 
+Todo el automatismo arranca cuando el botón 1 (I0.0) se deja presionado durante 3 s. Durante la operación se deja un indicador encendido (Q0.0). El automatismo se detiene cuando el botón 4 (I0.5) se presiona. Debe existir realimenteación del accionamiento del botón.
